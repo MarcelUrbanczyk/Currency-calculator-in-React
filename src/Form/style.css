@@ -1,0 +1,27 @@
+.form__input,
+.form__select,
+.form__button {
+  background: rgba(255, 255, 255, 0.313);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+  max-width: 300px;
+  height: 50px;
+  padding: 10px;
+  transition: 0.3s;
+}
+.form__input::placeholder {
+  color: white;
+}
+
+.form__input:hover,
+.form__select:hover,
+.form__button:hover {
+  background: rgba(255, 255, 255, 0.552);
+}
+
+.select__option {
+  background: black;
+}
