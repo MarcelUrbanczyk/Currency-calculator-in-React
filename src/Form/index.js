@@ -1,21 +1,40 @@
+import { useState } from "react";
 import "./style.css";
-const Form = () => {
+
+const Form = ({ currencies, setResult }) => {
+  const [amount, setAmount] = useState("");
+  const [selectedCurrency, setSelectedCurrency] = useState("EUR");
+  const updateResult = () => {
+    const selectedCurrencyObject = currencies.find(
+      (currency) => selectedCurrency === currency.name
+    );
+    setResult(selectedCurrencyObject.rate * amount);
+  };
   return (
     <form className="form">
       <input
+        value={amount}
         className="form__input"
         min="0"
         placeholder="Amount (USD)"
         type="number"
+        onChange={(event) => {
+          setAmount(event.target.value);
+          updateResult();
+          console.log(amount);
+        }}
       />
-      <select className="form__select">
-        <option className="select__option">EUR</option>
-        <option className="select__option">PLN</option>
-        <option className="select__option">GBP</option>
-        <option className="select__option">JPY</option>
-        <option className="select__option">CAD</option>
+      <select
+        value={selectedCurrency}
+        onChange={(event) => setSelectedCurrency(event.target.value)}
+        className="form__select"
+      >
+        {currencies.map((currency) => (
+          <option className="select__option" key={currency.name}>
+            {currency.name}
+          </option>
+        ))}
       </select>
-      <button className="form__button">Count</button>
     </form>
   );
 };

@@ -1,5 +1,5 @@
 import "./style.css";
-const Result = () => {
-  return <strong className="strong">Result: </strong>;
+const Result = ({ result }) => {
+  return <strong className="strong">Result:{result}</strong>;
 };
 export default Result;
