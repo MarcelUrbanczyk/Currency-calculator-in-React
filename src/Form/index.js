@@ -8,6 +8,7 @@ const Form = ({
   setResult,
 }) => {
   const [amount, setAmount] = useState("");
+
   const updateResult = (amount) => {
     const selectedCurrencyObject = currencies.find(
       (currency) => selectedCurrency === currency.name
@@ -24,12 +25,13 @@ const Form = ({
         type="number"
         onChange={(event) => {
           setAmount(event.target.value);
-          updateResult(event.target.value);
         }}
       />
       <select
         value={selectedCurrency}
-        onChange={(event) => setSelectedCurrency(event.target.value)}
+        onChange={(event) => {
+          setSelectedCurrency(event.target.value);
+        }}
         className="form__select"
       >
         {currencies.map((currency) => (
@@ -38,6 +40,9 @@ const Form = ({
           </option>
         ))}
       </select>
+      <button className="form__button" onClick={updateResult(amount)}>
+        Count
+      </button>
     </form>
   );
 };
