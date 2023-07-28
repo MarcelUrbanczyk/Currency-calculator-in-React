@@ -15,13 +15,23 @@ const currencies = [
 
 function App() {
   const [result, setResult] = useState(null);
+  const [selectedCurrency, setSelectedCurrency] = useState("EUR");
   return (
     <main>
       <Header />
       <Section
         title="Calculate"
-        body={<Form currencies={currencies} setResult={setResult} />}
-        extraContent={<Result result={result} />}
+        body={
+          <Form
+            currencies={currencies}
+            setSelectedCurrency={setSelectedCurrency}
+            selectedCurrency={selectedCurrency}
+            setResult={setResult}
+          />
+        }
+        extraContent={
+          <Result result={result} selectedCurrency={selectedCurrency} />
+        }
       />
       <Table />
     </main>

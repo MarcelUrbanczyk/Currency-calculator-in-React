@@ -1,5 +1,10 @@
 import "./style.css";
-const Result = ({ result }) => {
-  return <strong className="strong">Result:{result}</strong>;
+const Result = ({ result, selectedCurrency }) => {
+  return (
+    <strong className="strong">
+      Result: {result}
+      {selectedCurrency}
+    </strong>
+  );
 };
 export default Result;

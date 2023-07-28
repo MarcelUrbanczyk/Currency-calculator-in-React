@@ -1,14 +1,18 @@
 import { useState } from "react";
 import "./style.css";
 
-const Form = ({ currencies, setResult }) => {
+const Form = ({
+  setSelectedCurrency,
+  selectedCurrency,
+  currencies,
+  setResult,
+}) => {
   const [amount, setAmount] = useState("");
-  const [selectedCurrency, setSelectedCurrency] = useState("EUR");
   const updateResult = () => {
     const selectedCurrencyObject = currencies.find(
       (currency) => selectedCurrency === currency.name
     );
-    setResult(selectedCurrencyObject.rate * amount);
+    setResult((selectedCurrencyObject.rate * amount).toFixed(2));
   };
   return (
     <form className="form">
@@ -21,7 +25,6 @@ const Form = ({ currencies, setResult }) => {
         onChange={(event) => {
           setAmount(event.target.value);
           updateResult();
-          console.log(amount);
         }}
       />
       <select
