@@ -8,7 +8,7 @@ const Form = ({
   setResult,
 }) => {
   const [amount, setAmount] = useState("");
-  const updateResult = () => {
+  const updateResult = (amount) => {
     const selectedCurrencyObject = currencies.find(
       (currency) => selectedCurrency === currency.name
     );
@@ -24,7 +24,7 @@ const Form = ({
         type="number"
         onChange={(event) => {
           setAmount(event.target.value);
-          updateResult();
+          updateResult(event.target.value);
         }}
       />
       <select
