@@ -40,7 +40,11 @@ const Form = ({
           </option>
         ))}
       </select>
-      <button className="form__button" onClick={updateResult(amount)}>
+      <button
+        type="button"
+        className="form__button"
+        onClick={updateResult(amount)}
+      >
         Count
       </button>
     </form>
