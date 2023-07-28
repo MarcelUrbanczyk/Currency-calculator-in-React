@@ -19,3 +19,18 @@
   background: rgba(42, 42, 42, 0.8);
   cursor: default;
 }
+
+@media (max-width: 520px) {
+  .desktopTable {
+    display: none;
+  }
+  .mobileTable {
+    margin-top: 40px;
+    width: 100%;
+  }
+}
+@media (min-width: 521px) {
+  .mobileTable {
+    display: none;
+  }
+}

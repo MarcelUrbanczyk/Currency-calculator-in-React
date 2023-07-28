@@ -10,11 +10,17 @@ html {
 
 body {
   background-image: url(./Images/bg.jpg);
-  background-size: cover;
+  background-size: auto;
   background-repeat: no-repeat;
   margin: auto;
   max-width: 1000px;
   font-family: Montserrat, sans-serif;
   font-size: 24px;
   word-break: break-word;
+}
+
+@media (max-width: 1020px) {
+  body {
+    margin: 0 10px;
+  }
 }

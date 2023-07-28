@@ -1,7 +1,7 @@
 import "./style.css";
 
 const Header = () => (
-  <header>
+  <header className="header">
     <h1 className="header__text">Currency Calculator</h1>
   </header>
 );
