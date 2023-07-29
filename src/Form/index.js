@@ -9,11 +9,14 @@ const Form = ({
 }) => {
   const [amount, setAmount] = useState("");
 
-  const updateResult = (amount) => {
+  const updateResult = () => {
     const selectedCurrencyObject = currencies.find(
       (currency) => selectedCurrency === currency.name
     );
-    setResult((selectedCurrencyObject.rate * amount).toFixed(2));
+    setResult(
+      (selectedCurrencyObject.rate * amount).toFixed(2) +
+        selectedCurrencyObject.name
+    );
   };
   return (
     <form className="form">
@@ -40,11 +43,7 @@ const Form = ({
           </option>
         ))}
       </select>
-      <button
-        type="button"
-        className="form__button"
-        onClick={updateResult(amount)}
-      >
+      <button type="button" className="form__button" onClick={updateResult}>
         Count
       </button>
     </form>
