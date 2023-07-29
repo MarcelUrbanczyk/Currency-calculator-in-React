@@ -13,10 +13,12 @@ const Form = ({
     const selectedCurrencyObject = currencies.find(
       (currency) => selectedCurrency === currency.name
     );
-    setResult(
-      (selectedCurrencyObject.rate * amount).toFixed(2) +
-        selectedCurrencyObject.name
-    );
+    amount > 0
+      ? setResult(
+          (selectedCurrencyObject.rate * amount).toFixed(2) +
+            selectedCurrencyObject.name
+        )
+      : setResult("Invalid amount");
   };
   return (
     <form className="form">

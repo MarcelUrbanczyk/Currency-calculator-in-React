@@ -4,7 +4,6 @@ import Form from "./Form";
 import Result from "./Result";
 import Table from "./Table";
 import { useState } from "react";
-
 const currencies = [
   { name: "PLN", rate: 4.0 },
   { name: "EUR", rate: 0.9 },
