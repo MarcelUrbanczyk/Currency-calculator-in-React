@@ -1,10 +1,10 @@
 import "./style.css";
-const Table = () => (
+const Table = ({ currencies }) => (
   <>
     <table className="table desktopTable">
       <thead>
         <tr className="table__header">
-          <th className="table__cell" colSpan="6">
+          <th className="table__cell" colSpan={currencies.length + 1}>
             Exchange rates against the dollar
           </th>
         </tr>
@@ -12,19 +12,15 @@ const Table = () => (
       <tbody>
         <tr>
           <th className="table__cell">Currency</th>
-          <th className="table__cell">EUR</th>
-          <th className="table__cell">PLN</th>
-          <th className="table__cell">GBP</th>
-          <th className="table__cell">JPY</th>
-          <th className="table__cell">CAD</th>
+          {currencies.map((currency) => {
+            return <th className="table__cell">{currency.name}</th>;
+          })}
         </tr>
         <tr>
           <th className="table__cell">Rate</th>
-          <th className="table__cell">0.90</th>
-          <th className="table__cell">4.00</th>
-          <th className="table__cell">0.77</th>
-          <th className="table__cell">140.54</th>
-          <th className="table__cell">1.32</th>
+          {currencies.map((currency) => {
+            return <th className="table__cell">{currency.rate.toFixed(2)}</th>;
+          })}
         </tr>
       </tbody>
     </table>
@@ -42,26 +38,14 @@ const Table = () => (
           <th className="table__cell">Currency</th>
           <th className="table__cell">Rate</th>
         </tr>
-        <tr>
-          <th className="table__cell">EUR</th>
-          <th className="table__cell">0.90</th>
-        </tr>
-        <tr>
-          <th className="table__cell">PLN</th>
-          <th className="table__cell">4.00</th>
-        </tr>
-        <tr>
-          <th className="table__cell">GBP</th>
-          <th className="table__cell">0.77</th>
-        </tr>
-        <tr>
-          <th className="table__cell">JPY</th>
-          <th className="table__cell">140.54</th>
-        </tr>
-        <tr>
-          <th className="table__cell">CAD</th>
-          <th className="table__cell">1.32</th>
-        </tr>
+        {currencies.map((currency) => {
+          return (
+            <tr>
+              <th className="table__cell">{currency.name}</th>
+              <th className="table__cell">{currency.rate.toFixed(2)}</th>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   </>
