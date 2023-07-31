@@ -24,3 +24,9 @@ body {
     margin: 0 10px;
   }
 }
+
+@media (min-width: 1920px) {
+  body {
+    background-size: cover;
+  }
+}
