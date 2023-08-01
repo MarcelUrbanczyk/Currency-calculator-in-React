@@ -15,6 +15,7 @@
   border-radius: 12px 12px 0 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.214);
   display: flex;
+  justify-content: space-between;
   max-height: 80px;
 }
 

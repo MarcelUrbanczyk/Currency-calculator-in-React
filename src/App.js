@@ -3,6 +3,7 @@ import Section from "./Section";
 import Form from "./Form";
 import Result from "./Result";
 import Table from "./Table";
+import Clock from "./Section/Clock";
 import { useState } from "react";
 const currencies = [
   { name: "EUR", rate: 0.9 },
@@ -28,7 +29,8 @@ function App() {
             setResult={setResult}
           />
         }
-        extraContent={
+        extraHeaderContent={<Clock />}
+        extraBodyContent={
           <Result result={result} selectedCurrency={selectedCurrency} />
         }
       />
