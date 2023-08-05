@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input, Select, Button } from "./styled";
+import { Input, Select, Button, Option } from "./styled";
 
 const Form = ({
   setSelectedCurrency,
@@ -39,9 +39,9 @@ const Form = ({
         }}
       >
         {currencies.map((currency) => (
-          <option className="select__option" key={currency.name}>
+          <Option className="select__option" key={currency.name}>
             {currency.name}
-          </option>
+          </Option>
         ))}
       </Select>
       <Button type="button" onClick={updateResult}>
