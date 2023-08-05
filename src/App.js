@@ -8,8 +8,20 @@ import { useState } from "react";
 import { currencies } from "./Currencies";
 
 function App() {
-  const [result, setResult] = useState(null);
   const [selectedCurrency, setSelectedCurrency] = useState("EUR");
+  const [selectedCurrencyName, setSelectedCurrencyName] = useState(null);
+  const [amount, setAmount] = useState("");
+  const [result, setResult] = useState(null);
+
+  const updateResult = () => {
+    const selectedCurrencyObject = currencies.find(
+      (currency) => selectedCurrency === currency.name
+    );
+
+    setResult(selectedCurrencyObject.rate * amount);
+    setSelectedCurrencyName(selectedCurrencyObject.name);
+  };
+
   return (
     <main>
       <Header />
@@ -17,14 +29,19 @@ function App() {
         title="Calculate"
         body={
           <Form
+            amount={amount}
+            setAmount={setAmount}
             currencies={currencies}
             setSelectedCurrency={setSelectedCurrency}
             selectedCurrency={selectedCurrency}
             setResult={setResult}
+            updateResult={updateResult}
           />
         }
         extraHeaderContent={<Clock />}
-        extraBodyContent={<Result result={result} />}
+        extraBodyContent={
+          <Result result={result} selectedCurrencyName={selectedCurrencyName} />
+        }
       />
       <Table currencies={currencies} />
     </main>

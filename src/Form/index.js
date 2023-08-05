@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Input, Select, Button, Option } from "./styled";
 
 const Form = ({
@@ -6,21 +5,10 @@ const Form = ({
   selectedCurrency,
   currencies,
   setResult,
+  updateResult,
+  amount,
+  setAmount,
 }) => {
-  const [amount, setAmount] = useState("");
-
-  const updateResult = () => {
-    const selectedCurrencyObject = currencies.find(
-      (currency) => selectedCurrency === currency.name
-    );
-
-    setResult(
-      amount > 0
-        ? (selectedCurrencyObject.rate * amount).toFixed(2) +
-            selectedCurrencyObject.name
-        : "Invalid amount"
-    );
-  };
   return (
     <form>
       <Input
@@ -39,9 +27,7 @@ const Form = ({
         }}
       >
         {currencies.map((currency) => (
-          <Option className="select__option" key={currency.name}>
-            {currency.name}
-          </Option>
+          <Option key={currency.name}>{currency.name}</Option>
         ))}
       </Select>
       <Button type="button" onClick={updateResult}>
