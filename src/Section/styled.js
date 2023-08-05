@@ -1,11 +1,5 @@
-.section__header,
-.section__container {
-  box-shadow: 0px 0px 4px 1px #212121;
-  padding: 30px;
-  width: 100%;
-}
-
-.section__header {
+import styled from "styled-components";
+export const Header = styled.header`
   align-items: center;
   background: linear-gradient(
     to right bottom,
@@ -17,13 +11,16 @@
   display: flex;
   justify-content: space-between;
   max-height: 80px;
-}
+  box-shadow: 0px 0px 4px 1px #212121;
+  padding: 30px;
+  width: 100%;
+  @media (max-width: 520px) {
+    text-align: center;
+    justify-content: center;
+  }
+`;
 
-.section__headerText {
-  color: white;
-}
-
-.section__container {
+export const Container = styled.div`
   background: linear-gradient(
     to right top,
     rgb(90, 88, 88, 0.6),
@@ -31,14 +28,14 @@
   );
   min-height: 200px;
   border-radius: 0 0 12px 12px;
-}
-
-@media (max-width: 520px) {
-  .section__container,
-  .section__header {
+  box-shadow: 0px 0px 4px 1px #212121;
+  padding: 30px;
+  width: 100%;
+  @media (max-width: 520px) {
     text-align: center;
   }
-  .section__header {
-    justify-content: center;
-  }
-}
+`;
+
+export const HeaderText = styled.h2`
+  color: white;
+`;

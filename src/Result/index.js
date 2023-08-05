@@ -1,5 +1,5 @@
-import "./style.css";
+import { Strong } from "./styled";
 const Result = ({ result }) => {
-  return <strong className="strong">Result: {result}</strong>;
+  return <Strong>Result: {result}</Strong>;
 };
 export default Result;

@@ -1,53 +1,51 @@
-import "./style.css";
+import { DesktopTable, MobileTable, Cell } from "./styled";
 const Table = ({ currencies }) => (
   <>
-    <table className="table desktopTable">
+    <DesktopTable>
       <thead>
-        <tr className="table__header">
-          <th className="table__cell" colSpan={currencies.length + 1}>
+        <tr>
+          <Cell colSpan={currencies.length + 1}>
             Exchange rates against the dollar
-          </th>
+          </Cell>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th className="table__cell">Currency</th>
+          <Cell>Currency</Cell>
           {currencies.map((currency) => {
-            return <th className="table__cell">{currency.name}</th>;
+            return <Cell>{currency.name}</Cell>;
           })}
         </tr>
         <tr>
-          <th className="table__cell">Rate</th>
+          <Cell>Rate</Cell>
           {currencies.map((currency) => {
-            return <th className="table__cell">{currency.rate.toFixed(2)}</th>;
+            return <Cell>{currency.rate.toFixed(2)}</Cell>;
           })}
         </tr>
       </tbody>
-    </table>
+    </DesktopTable>
 
-    <table className="table mobileTable">
+    <MobileTable>
       <thead>
-        <tr className="table__header">
-          <th className="table__cell" colSpan="6">
-            Exchange rates against the dollar
-          </th>
+        <tr>
+          <Cell colSpan="6">Exchange rates against the dollar</Cell>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th className="table__cell">Currency</th>
-          <th className="table__cell">Rate</th>
+          <Cell>Currency</Cell>
+          <Cell>Rate</Cell>
         </tr>
         {currencies.map((currency) => {
           return (
             <tr>
-              <th className="table__cell">{currency.name}</th>
-              <th className="table__cell">{currency.rate.toFixed(2)}</th>
+              <Cell>{currency.name}</Cell>
+              <Cell>{currency.rate.toFixed(2)}</Cell>
             </tr>
           );
         })}
       </tbody>
-    </table>
+    </MobileTable>
   </>
 );
 export default Table;

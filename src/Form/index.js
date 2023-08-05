@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./style.css";
+import { Input, Select, Button } from "./styled";
 
 const Form = ({
   setSelectedCurrency,
@@ -22,10 +22,9 @@ const Form = ({
     );
   };
   return (
-    <form className="form">
-      <input
+    <form>
+      <Input
         value={amount}
-        className="form__input"
         min="0"
         placeholder="Amount (USD)"
         type="number"
@@ -33,22 +32,21 @@ const Form = ({
           setAmount(event.target.value);
         }}
       />
-      <select
+      <Select
         value={selectedCurrency}
         onChange={(event) => {
           setSelectedCurrency(event.target.value);
         }}
-        className="form__select"
       >
         {currencies.map((currency) => (
           <option className="select__option" key={currency.name}>
             {currency.name}
           </option>
         ))}
-      </select>
-      <button type="button" className="form__button" onClick={updateResult}>
+      </Select>
+      <Button type="button" onClick={updateResult}>
         Count
-      </button>
+      </Button>
     </form>
   );
 };
