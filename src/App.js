@@ -5,13 +5,7 @@ import Result from "./Result";
 import Table from "./Table";
 import Clock from "./Clock";
 import { useState } from "react";
-const currencies = [
-  { name: "EUR", rate: 0.9 },
-  { name: "PLN", rate: 4.0 },
-  { name: "GBP", rate: 0.77 },
-  { name: "JPY", rate: 140.54 },
-  { name: "CAD", rate: 1.32 },
-];
+import { currencies } from "./Currencies";
 
 function App() {
   const [result, setResult] = useState(null);
@@ -30,9 +24,7 @@ function App() {
           />
         }
         extraHeaderContent={<Clock />}
-        extraBodyContent={
-          <Result result={result} selectedCurrency={selectedCurrency} />
-        }
+        extraBodyContent={<Result result={result} />}
       />
       <Table currencies={currencies} />
     </main>
