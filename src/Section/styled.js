@@ -15,8 +15,11 @@ export const Header = styled.header`
   padding: 30px;
   width: 100%;
   @media (max-width: 520px) {
-    text-align: center;
+    display: grid;
+    grid-template-rows: auto auto;
     justify-content: center;
+    text-align: center;
+    max-height: 160px;
   }
 `;
 
@@ -38,4 +41,8 @@ export const Container = styled.div`
 
 export const HeaderText = styled.h2`
   color: white;
+  @media (max-width: 520px) {
+    margin: 5px;
+    grid-row: 1;
+  }
 `;
