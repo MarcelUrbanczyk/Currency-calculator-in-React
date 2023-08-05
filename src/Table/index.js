@@ -13,13 +13,13 @@ const Table = ({ currencies }) => (
         <tr>
           <Cell>Currency</Cell>
           {currencies.map((currency) => {
-            return <Cell>{currency.name}</Cell>;
+            return <Cell key={currency.name}>{currency.name}</Cell>;
           })}
         </tr>
         <tr>
           <Cell>Rate</Cell>
           {currencies.map((currency) => {
-            return <Cell>{currency.rate.toFixed(2)}</Cell>;
+            return <Cell key={currency.name}>{currency.rate.toFixed(2)}</Cell>;
           })}
         </tr>
       </tbody>
@@ -38,7 +38,7 @@ const Table = ({ currencies }) => (
         </tr>
         {currencies.map((currency) => {
           return (
-            <tr>
+            <tr key={currency.name}>
               <Cell>{currency.name}</Cell>
               <Cell>{currency.rate.toFixed(2)}</Cell>
             </tr>
