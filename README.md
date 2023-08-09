@@ -2,7 +2,7 @@
 
 ## Description
 
-One of my first projects, now remade in React.
+One of my first projects, now remade in React. First time fetching data from api.
 
 [![currency-calculator-react.gif](https://i.postimg.cc/8kfqWYcq/currency-calculator-react.gif)](https://postimg.cc/MXxPJdyD)
 
