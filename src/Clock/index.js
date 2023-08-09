@@ -1,9 +1,9 @@
 import { useCurrentDate } from "./useCurrentDate";
 import { Paragraph } from "./styled";
 const Clock = () => {
-  const currentTime = useCurrentDate();
+  const currentDate = useCurrentDate();
   const formattedTime = () => {
-    return currentTime.toLocaleString();
+    return currentDate.toLocaleString("en-US");
   };
   return <Paragraph>{formattedTime()}</Paragraph>;
 };

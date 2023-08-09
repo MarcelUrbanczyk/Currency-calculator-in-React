@@ -1,14 +1,12 @@
 import { Header, Container, HeaderText } from "./styled";
 
-const Section = ({ title, body, extraBodyContent, extraHeaderContent }) => (
+const Section = ({ title, body, extraHeaderContent, additionalContent }) => (
   <section>
     <Header>
       <HeaderText>{title}</HeaderText>
       {extraHeaderContent}
     </Header>
-    <Container>
-      {body} {extraBodyContent}
-    </Container>
+    <Container>{body}</Container>
   </section>
 );
 
