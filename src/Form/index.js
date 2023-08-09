@@ -1,6 +1,6 @@
 import { Input, Select, Button, Option } from "./styled";
 import Result from "./Result";
-import { Loading } from "./Loading/index";
+import { Loading } from "./Loading";
 import { Failure } from "./Failure";
 import { useState } from "react";
 import { useRatesData } from "../useRatesData";
@@ -15,7 +15,7 @@ const Form = () => {
 
   const calculateResult = () => {
     const rate = ratesData.rates[selectedCurrency];
-    setResult(amount * rate);
+    setResult({ calculation: amount * rate, selectedCurrency });
   };
 
   if (ratesData.status === "success") {
@@ -47,7 +47,7 @@ const Form = () => {
             Count
           </Button>
           <br />
-          <Result result={result} selectedCurrencyName={selectedCurrency} />
+          {result !== null ? <Result result={result} /> : null}
         </form>
         <Info date={ratesData.date} />
       </>
