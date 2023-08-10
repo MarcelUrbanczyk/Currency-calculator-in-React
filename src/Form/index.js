@@ -1,4 +1,4 @@
-import { Input, Select, Button, Option } from "./styled";
+import { Input, Select, Button, Option, StyledForm, Label } from "./styled";
 import Result from "./Result";
 import { Loading } from "./Loading";
 import { Failure } from "./Failure";
@@ -20,37 +20,35 @@ const Form = () => {
 
   if (ratesData.status === "success") {
     return (
-      <>
-        <form>
-          <Input
-            value={amount}
-            min="0"
-            placeholder="Amount (USD)"
-            type="number"
-            onChange={(event) => {
-              setAmount(event.target.value);
-            }}
-          />
-          <Select
-            value={selectedCurrency}
-            onChange={(event) => {
-              setSelectedCurrency(event.target.value);
-            }}
-          >
-            {Object.keys(ratesData.rates).map((currency) => (
-              <Option key={currency} value={currency}>
-                {currency}
-              </Option>
-            ))}
-          </Select>
-          <Button type="button" onClick={calculateResult}>
-            Count
-          </Button>
-          <br />
-          {result !== null ? <Result result={result} /> : null}
-        </form>
+      <StyledForm>
+        <Label>Amount (USD):</Label>
+        <Input
+          value={amount}
+          min="0"
+          type="number"
+          onChange={(event) => {
+            setAmount(event.target.value);
+          }}
+        />
+        <Select
+          value={selectedCurrency}
+          onChange={(event) => {
+            setSelectedCurrency(event.target.value);
+          }}
+        >
+          {Object.keys(ratesData.rates).map((currency) => (
+            <Option key={currency} value={currency}>
+              {currency}
+            </Option>
+          ))}
+        </Select>
+        <Button type="button" onClick={calculateResult}>
+          Count
+        </Button>
+        <br />
+        {result !== null ? <Result result={result} /> : null}
         <Info date={ratesData.date} />
-      </>
+      </StyledForm>
     );
   } else if (ratesData.status === "loading") {
     return <Loading />;

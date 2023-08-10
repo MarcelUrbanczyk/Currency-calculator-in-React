@@ -2,6 +2,14 @@ import styled from "styled-components";
 
 export const StyledInfo = styled.p`
   color: white;
-  margin-top: 60px;
+  margin: 10px;
+  font-size: 16px;
   text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row: 5;
+  @media (max-width: 440px) {
+    grid-column: 1;
+    grid-row: 6;
+  }
 `;

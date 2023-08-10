@@ -29,7 +29,7 @@ export const Container = styled.div`
     rgb(90, 88, 88, 0.6),
     rgb(37, 37, 37, 0.6)
   );
-  min-height: 200px;
+  min-height: 300px;
   border-radius: 0 0 12px 12px;
   box-shadow: 0px 0px 4px 1px #212121;
   padding: 30px;
