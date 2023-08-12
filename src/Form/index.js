@@ -18,42 +18,41 @@ const Form = () => {
     setResult({ calculation: amount * rate, selectedCurrency });
   };
 
-  if (ratesData.status === "success") {
-    return (
-      <StyledForm>
-        <Label>Amount (USD):</Label>
-        <Input
-          value={amount}
-          min="0"
-          type="number"
-          onChange={(event) => {
-            setAmount(event.target.value);
-          }}
-        />
-        <Select
-          value={selectedCurrency}
-          onChange={(event) => {
-            setSelectedCurrency(event.target.value);
-          }}
-        >
-          {Object.keys(ratesData.rates).map((currency) => (
-            <Option key={currency} value={currency}>
-              {currency}
-            </Option>
-          ))}
-        </Select>
-        <Button type="button" onClick={calculateResult}>
-          Count
-        </Button>
-        <br />
-        {result !== null ? <Result result={result} /> : null}
-        <Info date={ratesData.date} />
-      </StyledForm>
-    );
-  } else if (ratesData.status === "loading") {
+  if (ratesData.status === "loading") {
     return <Loading />;
-  } else {
+  } else if (ratesData.status === "failure") {
     return <Failure />;
   }
+  return (
+    <StyledForm>
+      <Label>Amount (USD):</Label>
+      <Input
+        value={amount}
+        min="0"
+        type="number"
+        onChange={(event) => {
+          setAmount(event.target.value);
+        }}
+      />
+      <Select
+        value={selectedCurrency}
+        onChange={(event) => {
+          setSelectedCurrency(event.target.value);
+        }}
+      >
+        {Object.keys(ratesData.rates).map((currency) => (
+          <Option key={currency} value={currency}>
+            {currency}
+          </Option>
+        ))}
+      </Select>
+      <Button type="button" onClick={calculateResult}>
+        Count
+      </Button>
+      <br />
+      {result !== null ? <Result result={result} /> : null}
+      <Info date={ratesData.date} />
+    </StyledForm>
+  );
 };
 export default Form;
