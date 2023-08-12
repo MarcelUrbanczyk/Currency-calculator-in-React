@@ -7,10 +7,7 @@ export const Strong = styled.strong`
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row: 3;
-  @media (max-width: 770px) {
-    grid-row: 4;
-  }
-  @media (max-width: 440px) {
+  @media (max-width: 800px) {
     grid-column: 1;
     grid-row: 5;
   }
