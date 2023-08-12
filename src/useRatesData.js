@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 export const useRatesData = () => {
+  const dataSource = "https://api.exchangerate.host/latest?base=USD";
   const [ratesData, setRatesData] = useState({
     status: "loading",
   });
@@ -8,9 +9,7 @@ export const useRatesData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://api.exchangerate.host/latest?base=USD"
-        );
+        const response = await fetch(dataSource);
 
         if (response.ok) {
           const { rates, date } = await response.json();
